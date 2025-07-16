@@ -11,7 +11,7 @@
     <div class="container g-5 d-flex align-items-center justify-content-center min-vh-100">
         <div class="w-100" style="max-width: 400px;">
             <div class="text-center mb-4">
-                <h1 class="fw-bold text-primary text-brand" style="font-size: 48px;">SSAO</h1>
+                <h1 class="fw-bold text-brand" style="font-size: 48px;">SSAO</h1>
                 <p class="fst-italic text-muted" style="font-size: 14px;">Seleksi Supplier & Alokasi Order</p>
             </div>
 

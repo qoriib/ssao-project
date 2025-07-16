@@ -11,7 +11,7 @@
     </div>
 
     <div class="text-center mb-4">
-        <h1 class="fw-bold text-primary text-brand">SSAO</h1>
+        <h1 class="fw-bold text-brand">SSAO</h1>
         <p class="fst-italic text-muted">Seleksi Supplier & Alokasi Order</p>
     </div>
 
