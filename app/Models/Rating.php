@@ -8,6 +8,7 @@ class Rating extends Model
 {
     protected $fillable = [
         'user_id',
+        'date',
         'flour_requirement',
         'priority_delivery',
         'priority_reject',
@@ -19,8 +20,8 @@ class Rating extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function allocations()
+    public function suppliers()
     {
-        return $this->hasMany(Allocation::class);
+        return $this->hasMany(Supplier::class);
     }
 }

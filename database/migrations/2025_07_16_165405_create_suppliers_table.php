@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // yang menambahkan supplier
+            $table->unsignedBigInteger('rating_id');
             $table->string('name');
             $table->decimal('price_per_kg', 10, 2);
             $table->decimal('max_order', 10, 2);
             $table->decimal('min_order', 10, 2);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('rating_id')->references('id')->on('ratings')->onDelete('cascade');
             $table->timestamps();
         });
     }

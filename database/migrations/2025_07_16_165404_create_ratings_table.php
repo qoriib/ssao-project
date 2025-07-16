@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->date('date');
             $table->decimal('flour_requirement', 10, 2);
             $table->decimal('priority_delivery', 5, 2);
             $table->decimal('priority_reject', 5, 2);

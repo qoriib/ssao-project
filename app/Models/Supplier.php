@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model
 {
     protected $fillable = [
-        'user_id',
+        'rating_id',
         'name',
         'price_per_kg',
         'max_order',
         'min_order',
     ];
 
-    public function user()
+    public function rating()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Rating::class);
     }
 
     public function history()
