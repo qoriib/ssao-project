@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="text-center mb-4">
-        <h1 class="fw-bold" style="font-size: 40px;">SSAO</h1>
+        <h1 class="fw-bold text-primary text-brand" style="font-size: 40px;">SSAO</h1>
         <p class="text-muted mb-1">Hello, Welcome to the SSAO App!</p>
         <p>Choose the best supplier & allocate your order easily here!</p>
     </div>

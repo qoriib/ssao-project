@@ -3,55 +3,51 @@
 @section('title', "Supplier Step $step")
 
 @section('content')
-<div class="container py-4" style="max-width: 500px;">
-    <h5 class="fw-semibold mb-4">Step {{ $step + 1 }}: Supplier Alternative {{ $step }}</h5>
-
-    <form method="POST" action="{{ route('rating.supplier.step.submit', $step) }}">
-        @csrf
-
-        <div class="mb-3">
-            <label>Supplier Name <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control rounded-pill" required>
+    <div class="container py-4" style="max-width: 500px;">
+        <div class="d-flex align-items-center mb-4">
+            <a href="{{ $step === 1 ? route('rating.step1') : route('rating.supplier.step', $step - 1) }}" class="me-2 text-dark fw-bold fs-5">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h5 class="mb-0 fw-semibold">Step {{ $step + 1 }}: Supplier Alternative {{ $step }}</h5>
         </div>
 
-        <div class="mb-3">
-            <label>Product Price per Kg (Rp) <span class="text-danger">*</span></label>
-            <input type="number" name="price_per_kg" class="form-control rounded-pill" required>
-        </div>
+        <form method="POST" action="{{ route('rating.supplier.step.submit', $step) }}">
+            @csrf
 
-        <div class="mb-3">
-            <label>Maximum Order (Kg) <span class="text-danger">*</span></label>
-            <input type="number" name="max_order" class="form-control rounded-pill" required>
-        </div>
+            @php
+                $fields = [
+                    'name' => 'Supplier Name',
+                    'price_per_kg' => 'Product Price per Kg (Rp)',
+                    'max_order' => 'Maximum Order (Kg)',
+                    'min_order' => 'Minimum Order (Kg)',
+                    'order_history' => 'Order History (Kg)',
+                    'delivery_time_history' => 'Delivery Time History (Days)',
+                    'reject_quality_history' => 'Reject Quality History (Kg)',
+                    'shortage_history' => 'Quantity Shortage History (Kg)',
+                ];
+            @endphp
 
-        <div class="mb-3">
-            <label>Minimum Order (Kg) <span class="text-danger">*</span></label>
-            <input type="number" name="min_order" class="form-control rounded-pill" required>
-        </div>
+            @foreach ($fields as $name => $label)
+                <div class="mb-3">
+                    <label for="{{ $name }}" class="form-label">{{ $label }} <span class="text-danger">*</span></label>
+                    <input
+                        type="{{ in_array($name, ['name']) ? 'text' : 'number' }}"
+                        name="{{ $name }}"
+                        id="{{ $name }}"
+                        class="form-control px-3 rounded-pill @error($name) is-invalid @enderror"
+                        required
+                        value="{{ old($name) }}"
+                    >
+                    @error($name)
+                        <div class="invalid-feedback text-center">{{ $message }}</div>
+                    @enderror
+                </div>
+            @endforeach
 
-        <div class="mb-3">
-            <label>Order History (Kg) <span class="text-danger">*</span></label>
-            <input type="number" name="order_history" class="form-control rounded-pill" required>
-        </div>
-
-        <div class="mb-3">
-            <label>Delivery Time History (Days) <span class="text-danger">*</span></label>
-            <input type="number" name="delivery_time_history" class="form-control rounded-pill" required>
-        </div>
-
-        <div class="mb-3">
-            <label>Reject Quality History (Kg) <span class="text-danger">*</span></label>
-            <input type="number" name="reject_quality_history" class="form-control rounded-pill" required>
-        </div>
-
-        <div class="mb-4">
-            <label>Quantity Shortage History (Kg) <span class="text-danger">*</span></label>
-            <input type="number" name="shortage_history" class="form-control rounded-pill" required>
-        </div>
-
-        <button type="submit" class="btn btn-warning rounded-pill w-100">
-            {{ $step < 3 ? 'Next Supplier' : 'Continue to Priority' }}
-        </button>
-    </form>
-</div>
+            <button type="submit" class="btn btn-warning rounded-pill w-100 fw-semibold">
+                {{ $step < 3 ? 'Next Supplier' : 'Continue to Priority' }}
+                <i class="fa-solid fa-arrow-right ms-1"></i>
+            </button>
+        </form>
+    </div>
 @endsection

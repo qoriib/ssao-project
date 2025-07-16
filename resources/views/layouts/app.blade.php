@@ -5,7 +5,7 @@
     <title>@yield('title', 'SSAO')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -49,6 +49,7 @@
 
         .navbar-brand {
             font-weight: 700;
+            font-family: 'Lobster', cursive;
         }
 
         .nav-link.logout-link {
@@ -62,21 +63,43 @@
 
     <nav class="navbar navbar-expand-md navbar-custom d-none d-md-flex">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('dashboard') }}">SSAO</a>
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
+                SSAO
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
-                    <li class="nav-item"><a href="{{ route('history') }}" class="nav-link">History</a></li>
-                    <li class="nav-item"><a href="{{ route('rating.step1') }}" class="nav-link">Rating</a></li>
-                    <li class="nav-item"><a href="{{ route('user.guide') }}" class="nav-link">User Guide</a></li>
-                    <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link">Logout</a></li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard') }}" class="nav-link">
+                            <i class="fa-solid fa-chart-pie me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('history') }}" class="nav-link">
+                            <i class="fa-solid fa-clock-rotate-left me-1"></i> History
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('rating.step1') }}" class="nav-link">
+                            <i class="fa-solid fa-star-half-stroke me-1"></i> Rating
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.guide') }}" class="nav-link">
+                            <i class="fa-solid fa-book-open me-1"></i> User Guide
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main class="pb-4">
-        <div class="container py-4" style="max-width: 700px;">
+        <div class="container g-5 py-4" style="max-width: 700px;">
             @yield('content')
         </div>
     </main>
