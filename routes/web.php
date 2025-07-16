@@ -36,6 +36,12 @@ Route::middleware('auth')->group(function () {
     // Rating result
     Route::get('/rating/analysis/{id}', [RatingController::class, 'showAnalysis'])->name('rating.analysis');
     Route::get('/rating/result/{id}', [RatingController::class, 'showResult'])->name('rating.result');
+    Route::get('/rating/print/{id}', [RatingController::class, 'print'])->name('rating.print');
+    Route::get('/rating/print-analysis/{id}', [RatingController::class, 'printAnalysis'])->name('rating.print.analysis');
+
+    // Rating Edit
+    Route::get('/rating/edit/{id}', [RatingController::class, 'edit'])->name('rating.edit');
+    Route::put('/rating/edit/{id}', [RatingController::class, 'update'])->name('rating.update');
 
     // User guide
     Route::get('/user-guide', fn() => view('user-guide'))->name('user.guide');

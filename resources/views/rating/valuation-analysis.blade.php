@@ -75,7 +75,7 @@
 
     <div class="d-grid gap-3">
         <a href="{{ route('dashboard') }}" class="btn btn-warning rounded-pill fw-semibold">Back to Homepage</a>
-        <a href="#" class="btn btn-outline-dark rounded-pill fw-semibold">Download Full Analysis Results</a>
+        <a href="{{ route('rating.print.analysis', $rating->id) }}" target="_blank" class="btn btn-outline-dark rounded-pill fw-semibold">Download Full Analysis Results</a>
     </div>
 </div>
 @endsection

@@ -72,7 +72,7 @@
 
     <div class="d-grid gap-3">
         <a href="{{ route('rating.analysis', $rating->id) }}" class="btn btn-warning rounded-pill fw-semibold">Full Analysis</a>
-        <a href="#" class="btn btn-outline-dark rounded-pill fw-semibold">Download Assessment Results</a>
+        <a href="{{ route('rating.print', $rating->id) }}" target="_blank" class="btn btn-outline-dark rounded-pill fw-semibold">Download Valuation</a>
     </div>
 </div>
 @endsection

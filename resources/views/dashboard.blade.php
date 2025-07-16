@@ -13,7 +13,7 @@
 
     {{-- Main Illustration --}}
     <div class="text-center mb-4">
-        <img src="{{ asset('images/dashboard-illustration.jpg') }}" alt="Illustration" class="img-fluid rounded shadow" >
+        <img src="{{ asset('images/dashboard-illustration.png') }}" alt="Illustration" class="img-fluid rounded shadow" >
     </div>
 
     {{-- Menu Cards --}}
@@ -21,7 +21,7 @@
         <div class="col-6 text-center">
             <a href="{{ route('user.guide') }}" class="text-decoration-none">
                 <div class="card shadow-sm p-2 rounded-4 border-0" style="background-color: #fef8e6;">
-                    <img src="{{ asset('images/user-guide.jpg') }}" alt="User Guide" class="img-fluid mb-2">
+                    <img src="{{ asset('images/user-guide.png') }}" alt="User Guide" class="img-fluid mb-2">
                     <h6 class="fw-bold text-dark">User Guide</h6>
                 </div>
             </a>
@@ -29,7 +29,7 @@
         <div class="col-6 text-center">
             <a href="{{ route('rating.step1') }}" class="text-decoration-none">
                 <div class="card shadow-sm p-2 rounded-4 border-0" style="background-color: #fef8e6;">
-                    <img src="{{ asset('images/supplier-rating.jpg') }}" alt="Supplier Rating" class="img-fluid mb-2">
+                    <img src="{{ asset('images/supplier-rating.png') }}" alt="Supplier Rating" class="img-fluid mb-2">
                     <h6 class="fw-bold text-dark">Supplier Rating</h6>
                 </div>
             </a>
