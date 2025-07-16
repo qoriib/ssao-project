@@ -5,3 +5,16 @@ $warning: #fbbf24;
 $danger: #ef4444;
 
 @import "bootstrap/scss/bootstrap";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #fffbe6, #fdf5d3);
+}
+
+.list-group {
+  --bs-list-group-border-color: rgb(203, 196, 167);
+}
+
+.list-group-item {
+  border-color: var(--bs-list-group-border-color);
+}

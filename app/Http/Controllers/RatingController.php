@@ -133,59 +133,6 @@ class RatingController extends Controller
         return redirect()->route('dashboard')->with('success', 'Rating submitted successfully.');
     }
 
-    public function edit($id)
-    {
-        $rating = Rating::with('suppliers.history')->findOrFail($id);
-        return view('rating.edit', compact('rating'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'date' => 'required|date',
-            'flour_requirement' => 'required|numeric|min:1',
-            'priority_delivery' => 'required|numeric|min:0|max:100',
-            'priority_reject' => 'required|numeric|min:0|max:100',
-            'priority_shortage' => 'required|numeric|min:0|max:100',
-            'suppliers.*.name' => 'required|string',
-            'suppliers.*.price_per_kg' => 'required|numeric|min:0',
-            'suppliers.*.min_order' => 'required|numeric|min:0',
-            'suppliers.*.max_order' => 'required|numeric|min:0',
-            'suppliers.*.delivery_time_history' => 'required|numeric|min:0',
-            'suppliers.*.reject_quality_history' => 'required|numeric|min:0',
-            'suppliers.*.shortage_history' => 'required|numeric|min:0',
-        ]);
-
-        $rating = Rating::findOrFail($id);
-
-        $rating->update([
-            'date' => $request->date,
-            'flour_requirement' => $request->flour_requirement,
-            'priority_delivery' => $request->priority_delivery,
-            'priority_reject' => $request->priority_reject,
-            'priority_shortage' => $request->priority_shortage,
-        ]);
-
-        foreach ($request->suppliers as $supplierData) {
-            $supplier = Supplier::findOrFail($supplierData['id']);
-            $supplier->update([
-                'name' => $supplierData['name'],
-                'price_per_kg' => $supplierData['price_per_kg'],
-                'min_order' => $supplierData['min_order'],
-                'max_order' => $supplierData['max_order'],
-            ]);
-
-            $history = $supplier->history;
-            $history->update([
-                'delivery_time_history' => $supplierData['delivery_time_history'],
-                'reject_quality_history' => $supplierData['reject_quality_history'],
-                'shortage_history' => $supplierData['shortage_history'],
-            ]);
-        }
-
-        return redirect()->route('rating.result', $rating->id)->with('success', 'Rating successfully updated.');
-    }
-
     // History list
     public function history()
     {
@@ -194,6 +141,7 @@ class RatingController extends Controller
         return view('rating.history', compact('ratings'));
     }
 
+    // Valuation Result
     public function showResult($id)
     {
         $rating = Rating::where('id', $id)
@@ -381,14 +329,6 @@ class RatingController extends Controller
             compact('rating', 'suppliers'),
             $data
         ));
-    }
-
-    public function print($id)
-    {
-        $rating = Rating::with('suppliers.history')->findOrFail($id);
-        $data = $this->calculateEvaluation($rating);
-
-        return view('rating.print', array_merge(compact('rating'), $data));
     }
 
     public function printAnalysis($id)

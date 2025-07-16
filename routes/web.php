@@ -7,11 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
 
@@ -36,12 +34,7 @@ Route::middleware('auth')->group(function () {
     // Rating result
     Route::get('/rating/analysis/{id}', [RatingController::class, 'showAnalysis'])->name('rating.analysis');
     Route::get('/rating/result/{id}', [RatingController::class, 'showResult'])->name('rating.result');
-    Route::get('/rating/print/{id}', [RatingController::class, 'print'])->name('rating.print');
     Route::get('/rating/print-analysis/{id}', [RatingController::class, 'printAnalysis'])->name('rating.print.analysis');
-
-    // Rating Edit
-    Route::get('/rating/edit/{id}', [RatingController::class, 'edit'])->name('rating.edit');
-    Route::put('/rating/edit/{id}', [RatingController::class, 'update'])->name('rating.update');
 
     // User guide
     Route::get('/user-guide', fn() => view('user-guide'))->name('user.guide');

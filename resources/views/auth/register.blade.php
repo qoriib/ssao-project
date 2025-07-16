@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Register - SSAO')
+@section('title', 'Register')
 
 @section('form')
     <form method="POST" action="{{ route('register.submit') }}">
