@@ -28,8 +28,8 @@
         }
 
         .sidebar .navbar-brand {
-            font-family: 'Lobster', cursive;
             font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 2rem;
             display: block;
             text-align: center;
