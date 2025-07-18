@@ -44,7 +44,7 @@
                 </div>
             @endforeach
 
-            <button type="submit" class="btn btn-warning rounded-pill w-100 fw-semibold">
+            <button type="submit" class="btn btn-primary rounded-pill w-100 fw-semibold">
                 {{ $step < 3 ? 'Next Supplier' : 'Continue to Priority' }}
                 <i class="fa-solid fa-arrow-right ms-1"></i>
             </button>

@@ -23,7 +23,7 @@
                             <div class="fw-medium font-monospace">{{ \Carbon\Carbon::parse($rating->date)->format('d/m/Y') }}</div>
                             <div class="text-muted small">{{ $rating->flour_requirement }} Kg</div>
                         </div>
-                        <a href="{{ route('rating.result', $rating->id) }}" class="text-warning fw-bold fs-5">
+                        <a href="{{ route('rating.result', $rating->id) }}" class="text-primary fw-bold fs-5">
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
                     </li>

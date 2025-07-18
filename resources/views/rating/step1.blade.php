@@ -44,7 +44,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-warning rounded-pill w-100 fw-semibold">
+            <button type="submit" class="btn btn-primary rounded-pill w-100 fw-semibold">
                 Next <i class="fa-solid fa-arrow-right ms-1"></i> 
             </button>
         </form>

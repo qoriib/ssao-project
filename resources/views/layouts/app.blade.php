@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'SSAO')</title>
+    <title>@yield('title', 'Supply Rank')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lobster&display=swap" rel="stylesheet">
@@ -10,64 +10,30 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #fffbe6, #fdf5d3);
             min-height: 100vh;
             padding-bottom: 70px;
-        }
-
-        .card {
-            background: #fffbe6;
-        }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #f9d77e;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 60px;
-            z-index: 1000;
-        }
-
-        .bottom-nav a,
-        .bottom-nav button {
-            color: #000;
-            font-size: 18px;
-            position: relative;
-            background: none;
-            border: none;
-        }
-
-        .navbar-custom {
-            background-color: #f9d77e;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-family: 'Lobster', cursive;
-        }
-
-        .nav-link.logout-link {
-            cursor: pointer;
         }
     </style>
 
     @stack('styles')
 </head>
-<body>
+<body class="bg-light">
 
-    <nav class="navbar navbar-expand-md navbar-custom d-none d-md-flex">
-        <div class="container">
+    <nav class="navbar navbar-expand-md border-bottom">
+        <div class="container g-5">
             <a class="navbar-brand" href="{{ route('dashboard') }}">
-                SSAO
+                Supply Rank
             </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
+
+            {{-- Toggle button for mobile --}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            {{-- Menu items --}}
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto mt-3 mt-md-0">
                     <li class="nav-item">
                         <a href="{{ route('dashboard') }}" class="nav-link">
                             <i class="fa-solid fa-chart-pie me-1"></i> Dashboard
@@ -103,14 +69,6 @@
             @yield('content')
         </div>
     </main>
-
-    <nav class="bottom-nav d-md-none">
-        <a href="{{ route('dashboard') }}"><i class="fa-solid fa-house"></i></a>
-        <a href="{{ route('history') }}"><i class="fa-solid fa-clipboard-list"></i></a>
-        <a href="{{ route('rating.step1') }}"><i class="fa-solid fa-star"></i></a>
-        <a href="{{ route('user.guide') }}"><i class="fa-solid fa-lightbulb"></i></a>
-        <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
-    </nav>
 
     @stack('scripts')
 </body>

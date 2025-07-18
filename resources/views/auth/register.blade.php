@@ -36,12 +36,12 @@
         </div>
 
         <div class="d-grid mb-3">
-            <button type="submit" class="btn btn-warning rounded-pill fw-semibold">Register</button>
+            <button type="submit" class="btn btn-primary rounded-pill fw-semibold">Register</button>
         </div>
 
         <p class="text-center small mb-0">
-            Sudah punya akun?
-            <a href="{{ route('login') }}" class="text-decoration-none fw-semibold text-warning">Login di sini</a>
+            Have any account?
+            <a href="{{ route('login') }}" class="text-decoration-none fw-semibold text-primary">Login</a>
         </p>
     </form>
 @endsection

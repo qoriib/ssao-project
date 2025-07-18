@@ -27,7 +27,7 @@
     </div>
 
     <p class="text-center small mb-0">
-        Belum punya akun? <a href="{{ route('register') }}" class="text-decoration-none">Register</a>
+        Doesn't have account? <a href="{{ route('register') }}" class="text-decoration-none">Register</a>
     </p>
 </form>
 @endsection

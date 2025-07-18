@@ -1,14 +1,7 @@
-$primary: #facc15;
-$secondary: #6c757d;
-$success: #10b981;
-$warning: #fbbf24;
-$danger: #ef4444;
-
 @import "bootstrap/scss/bootstrap";
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #fffbe6, #fdf5d3);
 }
 
 .list-group {
@@ -17,8 +10,4 @@ body {
 
 .list-group-item {
   border-color: var(--bs-list-group-border-color);
-}
-
-.text-brand {
-  font-family: 'Lobster', cursive;
 }

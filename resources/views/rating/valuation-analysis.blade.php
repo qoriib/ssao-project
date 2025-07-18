@@ -11,8 +11,7 @@
     </div>
 
     <div class="text-center mb-4">
-        <h1 class="fw-bold text-brand">SSAO</h1>
-        <p class="fst-italic text-muted">Seleksi Supplier & Alokasi Order</p>
+        <h1 class="fw-bold">Supply Rank</h1>
     </div>
 
     <div class="mb-4">
@@ -47,17 +46,17 @@
                         <strong class="fw-semibold">{{ $s['max_order'] }} Kg</strong>
                     </li>
                     <li class="list-group-item bg-transparent d-flex align-items-center">
-                        <i class="fa-solid fa-clock me-2 text-warning"></i>
+                        <i class="fa-solid fa-clock me-2 text-primary"></i>
                         <span class="flex-grow-1">Lead Time</span>
                         <strong class="fw-semibold">{{ $s['delivery_time_history'] }} Days</strong>
                     </li>
                     <li class="list-group-item bg-transparent d-flex align-items-center">
-                        <i class="fa-solid fa-times-circle me-2 text-warning"></i>
+                        <i class="fa-solid fa-times-circle me-2 text-primary"></i>
                         <span class="flex-grow-1">Reject Quality</span>
                         <strong class="fw-semibold">{{ $s['reject_quality_history'] }} Kg</strong>
                     </li>
                     <li class="list-group-item bg-transparent d-flex align-items-center">
-                        <i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i>
+                        <i class="fa-solid fa-triangle-exclamation me-2 text-primary"></i>
                         <span class="flex-grow-1">Shortage</span>
                         <strong class="fw-semibold">{{ $s['shortage_history'] }} Kg</strong>
                     </li>
@@ -69,7 +68,7 @@
     <div class="mb-4">
         <h6 class="fw-semibold mb-3">Supplier Performance Evaluation</h6>
         <div class="table-responsive">
-            <table class="table table-sm table-primary table-bordered align-middle text-center rounded-4">
+            <table class="table table-sm table-bordered align-middle text-center rounded-4">
                 <thead>
                     <tr>
                         <th class="fw-semibold">Supplier</th>
@@ -100,22 +99,22 @@
         <h6 class="fw-semibold mb-2">Optimal Solution</h6>
         <ul class="list-group list-group-flush">
             <li class="list-group-item px-0 bg-transparent d-flex align-items-center">
-                <i class="fa-solid fa-clock me-2 text-warning"></i>
+                <i class="fa-solid fa-clock me-2 text-primary"></i>
                 <span class="flex-grow-1">Lead Time</span>
                 <strong class="fw-semibold ms-1">{{ $solution['lead_time'] }} Days.Kg</strong>
             </li>
             <li class="list-group-item px-0 bg-transparent d-flex align-items-center">
-                <i class="fa-solid fa-times-circle me-2 text-warning"></i>
+                <i class="fa-solid fa-times-circle me-2 text-primary"></i>
                 <span class="flex-grow-1">Reject Quality</span>
                 <strong class="fw-semibold ms-1">{{ $solution['reject_quality'] }} Kg</strong>
             </li>
             <li class="list-group-item px-0 bg-transparent d-flex align-items-center">
-                <i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i>
+                <i class="fa-solid fa-triangle-exclamation me-2 text-primary"></i>
                 <span class="flex-grow-1">Quantity Shortage</span>
                 <strong class="fw-semibold ms-1">{{ $solution['shortage'] }} Kg</strong>
             </li>
             <li class="list-group-item px-0 bg-transparent d-flex align-items-center">
-                <i class="fa-solid fa-ban me-2 text-warning"></i>
+                <i class="fa-solid fa-ban me-2 text-primary"></i>
                 <span class="flex-grow-1">Unmet Demand</span>
                 <strong class="fw-semibold ms-1">{{ $solution['unmet_demand'] }}%</strong>
             </li>
@@ -123,7 +122,7 @@
     </div>
 
     <div class="d-grid gap-3">
-        <a href="{{ route('dashboard') }}" class="btn btn-warning rounded-pill fw-semibold">
+        <a href="{{ route('dashboard') }}" class="btn btn-primary rounded-pill fw-semibold">
             <i class="fa-solid fa-house me-1"></i> Back to Homepage
         </a>
         <a href="{{ route('rating.print.analysis', $rating->id) }}" target="_blank" class="btn btn-outline-dark rounded-pill fw-semibold">

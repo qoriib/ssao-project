@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Print Full Analysis - SSAO</title>
+    <title>Print Full Analysis - Supply Rank</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -84,7 +84,7 @@
     <button onclick="window.print()">Print / Save PDF</button>
 </div>
 
-<h1>SSAO - Full Analysis</h1>
+<h1>Supply Rank - Full Analysis</h1>
 <p><strong>Date:</strong> {{ \Carbon\Carbon::parse($rating->date)->format('d/m/Y') }}</p>
 <p><strong>Flour Requirement:</strong> {{ $rating->flour_requirement }} Kg</p>
 

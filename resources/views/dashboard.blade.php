@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard - SSAO')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="text-center mb-4">
-        <h1 class="fw-bold text-brand" style="font-size: 40px;">SSAO</h1>
-        <p class="text-muted mb-1">Hello, Welcome to the SSAO App!</p>
-        <p>Choose the best supplier & allocate your order easily here!</p>
+        <h1 class="fw-bold" style="font-size: 40px;">Supply Rank</h1>
+        <p class="text-muted mb-1">Hello, Welcome to the Supply Rank!</p>
     </div>
 
     <div class="row mb-4">
@@ -37,25 +36,6 @@
         </div>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-6 text-center">
-            <a href="{{ route('user.guide') }}" class="text-decoration-none">
-                <div class="card shadow-sm p-2 rounded-4">
-                    <img src="{{ asset('images/user-guide.png') }}" alt="User Guide" class="img-fluid rounded-3 mb-3">
-                    <h6 class="fw-semibold text-dark">User Guide</h6>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 text-center">
-            <a href="{{ route('rating.step1') }}" class="text-decoration-none">
-                <div class="card shadow-sm p-2 rounded-4">
-                    <img src="{{ asset('images/supplier-rating.png') }}" alt="Supplier Rating" class="img-fluid rounded-3 mb-3">
-                    <h6 class="fw-semibold text-dark">Supplier Rating</h6>
-                </div>
-            </a>
-        </div>
-    </div>
-
     <div class="card rounded-4 shadow-sm">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -71,7 +51,7 @@
                             <div class="fw-medium font-monospace">{{ \Carbon\Carbon::parse($history->date)->format('d/m/Y') }}</div>
                             <div class="text-muted small">{{ $history->flour_requirement }} Kg</div>
                         </div>
-                        <a href="{{ route('rating.result', $history->id) }}" class="text-warning fw-bold fs-5">
+                        <a href="{{ route('rating.result', $history->id) }}" class="text-primary fw-bold fs-5">
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
                     </li>
@@ -110,7 +90,7 @@
             xaxis: {
                 categories: @json(array_keys($rankingData->toArray()))
             },
-            colors: ['#f9a825']
+            colors: ['#0d6efd']
         };
 
         const chart = new ApexCharts(document.querySelector("#rankingChart"), options);
